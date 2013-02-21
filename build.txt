@@ -1,0 +1,33 @@
+DDS Sine Sweeper
+
+Copyright 2013 Al Brown
+
+http://eartoearoak.com/hardware/dds-sine-sweeper
+
+This file is part of DDS Sine Sweeper.
+
+
+Environment
+===========
+
+ST Visual Develop 4.3.2
+Raisonance RKit-STM8 (Lite) 2.48.12.0338
+STM8S Standard Peripheral Driver 2.1.0
+
+
+Build
+=====
+
+Edit the following variables in the Makefile to reflect your environment:
+
+ToolsetRoot - Path to the root of the Raisonance tools
+StdPeriphRoot - Path to the root of the Standard Peripheral Driver
+FlashTool - The flash executable (part of STVD)
+
+Use the STVD 'gmake' to build:
+
+gmake all
+
+Flash using:
+
+gmake flash
