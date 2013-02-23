@@ -285,7 +285,6 @@ void screen(void) {
 	s8 index;
 	u8 limit;
 	u8 button;
-	s32 min_period;
 	s32 max_period;
 	u32 freq_old = Config.freq;
 
@@ -347,10 +346,11 @@ void screen(void) {
 				else if (index == 8) {
 					if (Config.step > Config.stop - Config.start)
 						Config.step = Config.stop - Config.start;
-					min_period = (Config.stop - Config.start) * 10 / 65535;
 					max_period = (Config.stop - Config.start) * 10;
-					if (Config.period < min_period)
-						Config.period = min_period;
+					if(max_period > 65535)
+						max_period = 65535;
+					if (Config.period < 10)
+						Config.period = 10;
 					if (Config.period > max_period)
 						Config.period = max_period;
 					dialog = screen_switch(SCREEN_PERIOD, &limit, &index);
@@ -359,7 +359,7 @@ void screen(void) {
 			case SCREEN_PERIOD:
 				Config.step = (Config.stop - Config.start) * 10 / Config.period;
 				if (index < 5)
-					edit(dialog, &Config.period, min_period, max_period, index,
+					edit(dialog, &Config.period, 10, max_period, index,
 							0, 5);
 				else if (index == 5) {
 					Sweeping = TRUE;
