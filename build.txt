@@ -24,6 +24,8 @@ ToolsetRoot - Path to the root of the Raisonance tools
 StdPeriphRoot - Path to the root of the Standard Peripheral Driver
 FlashTool - The flash executable (part of STVD)
 
+If your DDS module does not have a 125MHz crystal on it then edit AD9850_CLOCK in main.h to the frequency in MHz
+
 Use the STVD 'gmake' to build:
 
 gmake all

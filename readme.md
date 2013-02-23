@@ -14,6 +14,8 @@ Full details can be found [here](http://eartoearoak.com/hardware/dds-sine-sweepe
 
 The hex file is located in the firmware directory and can be flashed using the [ST Visual Programmer](http://www.st.com/web/catalog/tools/FM147/CL1794/SC1807/SS1747/PF210568), the circuit diagram is located in the schematic directory.  Although the Eagle schematic does include footprints these haven't been checked so it's advisable to use breadboard for the construction.
 
+If your DDS module doesn't use a 125MHz crystal you'll have to build your own firmware, see build.txt for more details.
+
 **Navigation**
 
 Use the Left/Right buttons to move between digits and options, the Enter button selects a digit or option.
