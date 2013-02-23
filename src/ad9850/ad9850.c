@@ -49,12 +49,17 @@ static void send_byte(u8 byte) {
 
 void ad9850_freq(const u32 frequency) {
 
-	u32 freq = frequency * (4294967295 / AD9850_CLOCK);
+	float freq;
+	u32 word;
 	u8 i;
 
+	freq = (float)4294967295 / AD9850_CLOCK;
+	freq *= frequency;
+	word = (u32)freq;
+
 	for (i = 0; i < 4; i++) {
-		send_byte((u8) (freq & 0xff));
-		freq >>= 8;
+		send_byte((u8) (word & 0xff));
+		word >>= 8;
 	}
 	send_byte(0);
 
